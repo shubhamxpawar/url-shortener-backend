@@ -5,11 +5,6 @@ import { handleRedirection } from "./controllers/url.js"
 import dotenv from "dotenv";
 import cors from "cors";
 
-app.use(cors({
-  origin: "https://short-vader.vercel.app/"
-}));
-
-
 dotenv.config();
 const app = express()
 const port = process.env.PORT || 8000
@@ -18,6 +13,9 @@ connectMongoDB(process.env.MONGO_URL)
   .then(() => { console.log("connected to mongoDB")})
 
 app.use(express.json())
+app.use(cors({
+  origin: "https://short-vader.vercel.app/"
+}));
 
 app.get('/', (req, res) => {
   res.send('<h2>welcome to the server !</h2>')
