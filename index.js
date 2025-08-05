@@ -3,6 +3,12 @@ import { connectMongoDB } from "./connection.js"
 import { router } from "./routes/url.js"
 import { handleRedirection } from "./controllers/url.js"
 import dotenv from "dotenv";
+import cors from "cors";
+
+app.use(cors({
+  origin: "https://short-vader.vercel.app/"
+}));
+
 
 dotenv.config();
 const app = express()
