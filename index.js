@@ -14,7 +14,7 @@ connectMongoDB(process.env.MONGO_URL)
 
 app.use(express.json())
 app.use(cors({
-  origin: "https://short-vader.vercel.app/"
+  origin: "https://short-vader.vercel.app"
 }));
 
 app.get('/', (req, res) => {
